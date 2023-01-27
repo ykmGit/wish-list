@@ -74,13 +74,13 @@ padding: 0.5rem 1rem;
   color: silver;
 }
 `
-interface Props {
-  setText: (text: string) => void
+type Props = {
+  text: string
 }
 
 export const History: React.FC<Props> = (props) => {
   const { setText } = props
-  const [memos, setMemos] = useState<MemoRecord[]>([])
+  const [memos, setMemos] = useState < MemoRecord[] > ([])
   const [page, setPage] = useState(1)
   const [maxPage, setMaxPage] = useState(1)
   const history = useHistory()
