@@ -19,8 +19,19 @@ const images = [
   },
 ];
 
+const Background = styled('div')({
+  'background-color': '#ddd5bf',
+  'background-size': 'cover',
+  'background-attachment': 'fixed',
+  position: 'relative',
+  height: '100vh',
+  width: '100%',
+});
+
 const DivBlock = styled('div')({
-  margin: '10em',
+  padding: '0 10em',
+  position: 'relative',
+  top: '10em',
 });
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
@@ -91,39 +102,41 @@ export const ButtonBases = () => {
 
   return (
     <>
-      <DivBlock>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
-          {images.map((image) => (
-            <ImageButton
-              focusRipple
-              key={image.title}
-              style={{
-                width: image.width,
-              }}
-              href={image.link}
-            >
-              <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-              <ImageBackdrop className="MuiImageBackdrop-root" />
-              <Image>
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  sx={{
-                    position: 'relative',
-                    p: 4,
-                    pt: 2,
-                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                  }}
-                >
-                  {image.title}
-                  <ImageMarked className="MuiImageMarked-root" />
-                </Typography>
-              </Image>
-            </ImageButton>
-          ))}
-        </Box>
-      </DivBlock>
+      <Background>
+        <DivBlock>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+            {images.map((image) => (
+              <ImageButton
+                focusRipple
+                key={image.title}
+                style={{
+                  width: image.width,
+                }}
+                href={image.link}
+              >
+                <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                <ImageBackdrop className="MuiImageBackdrop-root" />
+                <Image>
+                  <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    sx={{
+                      position: 'relative',
+                      p: 4,
+                      pt: 2,
+                      pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                    }}
+                  >
+                    {image.title}
+                    <ImageMarked className="MuiImageMarked-root" />
+                  </Typography>
+                </Image>
+              </ImageButton>
+            ))}
+          </Box>
+        </DivBlock>
+      </Background>
     </>
   );
 }

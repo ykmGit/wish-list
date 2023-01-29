@@ -1,14 +1,16 @@
-import * as React from 'react';
+// import * as React from 'react';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import { styled } from '@mui/material/styles';
+import React, { useState } from "react";
 
-const ariaLabel = { 'aria-label': 'description' };
+// const ariaLabel = { 'aria-label': 'description' };
+// const { useState, useEffect } = React
 
 const Wrapper = styled('div')({
   bottom: '3rem',
   left: '0',
-  position: 'fixed',
+  // position: 'fixed',
   right: '0',
   top: '10rem',
   padding: '0 1rem',
@@ -38,6 +40,14 @@ const Memo = styled('button')({
 // });
 
 export const Inputs = () => {
+
+  const [text, setText] = useState("");
+  // const [value, setValue] = useState(0)
+  // const print = () => {
+  //   setText(100)
+  //   console.log('print')
+  // }
+
   return (
     <>
       <Wrapper>
@@ -50,13 +60,10 @@ export const Inputs = () => {
             noValidate
             autoComplete="off"
           >
-            <Input defaultValue="Hello world" inputProps={ariaLabel} /><br />
-            <Input defaultValue="Hello world" inputProps={ariaLabel} /><br />
-            <Input defaultValue="Hello world" inputProps={ariaLabel} /><br />
-            <Input defaultValue="Hello world" inputProps={ariaLabel} /><br />
+            <Input onChange={(event) => setText(event.target.value)} /><p>{text}</p><br />
             {/* <Input placeholder="Placeholder" inputProps={ariaLabel} />
-      <Input disabled defaultValue="Disabled" inputProps={ariaLabel} />
-      <Input defaultValue="Error" error inputProps={ariaLabel} /> */}
+            <Input disabled defaultValue="Disabled" inputProps={ariaLabel} />
+            <Input defaultValue="Error" error inputProps={ariaLabel} /> */}
           </Box>
         </Memo>
       </Wrapper>

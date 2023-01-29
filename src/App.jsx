@@ -18,6 +18,7 @@ import { Editor } from "./pages/Editor";
 function App() {
   return (
     <>
+      {/* <body style={{ 'background-color': '#d7d2cc' }}> */}
       <BrowserRouter>
         <div className="App">
           <Switch>
@@ -41,6 +42,7 @@ function App() {
           </Switch>
         </div>
       </BrowserRouter>
+      {/* </body> */}
     </>
   );
 }
